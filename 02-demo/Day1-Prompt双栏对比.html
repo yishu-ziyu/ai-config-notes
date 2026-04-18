@@ -91,6 +91,12 @@
         gap: 18px;
       }
 
+      .stack {
+        display: grid;
+        gap: 18px;
+        margin-top: 22px;
+      }
+
       .panel {
         border-radius: 24px;
         border: 1px solid var(--line);
@@ -189,9 +195,47 @@
         line-height: 1.8;
       }
 
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .mini-card {
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        padding: 18px;
+      }
+
+      .mini-card h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .final-prompt {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 18px;
+      }
+
+      .bullet-note {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.9;
+      }
+
       @media (max-width: 900px) {
         .summary,
-        .grid {
+        .grid,
+        .compare-grid,
+        .final-prompt {
           grid-template-columns: 1fr;
         }
       }
@@ -320,6 +364,71 @@
         最重要的不是 Prompt 写得多复杂。<br />
         最重要的是，Prompt 有没有让模型更少误解你。
       </div>
+
+      <section class="stack">
+        <article class="panel">
+          <div class="panel-head">
+            <div class="tag" style="background: rgba(30, 27, 24, 0.07); color: #433a32;">What Changed</div>
+            <h2>真正拉开差距的，不是字数，而是判断。</h2>
+            <p class="desc">
+              好 Prompt 没有做很神秘的事。它只是把那些本来不该让模型猜的东西，提前说清楚了。
+            </p>
+          </div>
+
+          <div class="section">
+            <div class="compare-grid">
+              <div class="mini-card">
+                <h3>任务更清楚</h3>
+                <p>从“帮我总结一下”变成“提炼 5 个核心能力并排序”。</p>
+              </div>
+              <div class="mini-card">
+                <h3>结果更清楚</h3>
+                <p>不是随便回答，而是固定成表格，并限制长度。</p>
+              </div>
+              <div class="mini-card">
+                <h3>边界更清楚</h3>
+                <p>明确要求不要照抄原文，也不要发散成长文。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div class="tag" style="background: rgba(30, 27, 24, 0.07); color: #433a32;">Final Prompt</div>
+            <h2>这是现在最适合直接抄去用的版本。</h2>
+            <p class="desc">
+              它不追求炫技。它追求的是：任务清楚，输出稳定，结果可以直接拿来整理知识库。
+            </p>
+          </div>
+
+          <div class="section final-prompt">
+            <pre>你现在扮演岗位分析师。
+
+任务：
+根据下面的岗位描述，提炼 5 个最核心能力，并按 P0 / P1 / P2 排优先级。
+
+输出要求：
+1. 用中文
+2. 输出表格，字段为：能力 / 为什么重要 / 优先级
+3. 不要照抄原文
+4. 不要超过 200 字
+
+材料：
+[岗位描述]</pre>
+
+            <div>
+              <div class="section-title">为什么留这个版本</div>
+              <ul class="bullet-note">
+                <li>能直接复用</li>
+                <li>不容易跑偏</li>
+                <li>更适合真实工作</li>
+                <li>适合继续改成 skill</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
     </div>
   </body>
-  </html>
+</html>
