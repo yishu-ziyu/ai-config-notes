@@ -19,6 +19,7 @@
 - [Day1 Prompt 模板卡](../01-学习卡片/Day1-Prompt模板卡.md)
 - [Day1 Prompt 对比 Demo 说明](../02-demo/Day1-Prompt对比Demo说明.md)
 - [Day1 实验记录表](../02-demo/Day1-实验记录表.md)
+- [Day1 Prompt 双栏对比](../02-demo/Day1-Prompt双栏对比.html)
 
 ### Case Study 骨架
 

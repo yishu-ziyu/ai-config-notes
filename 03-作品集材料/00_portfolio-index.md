@@ -22,6 +22,10 @@
 - [A02 Workflow Gallery](./appendix/A02_workflow-gallery.md)
 - [A03 Eval & Badcase Appendix](./appendix/A03_eval-badcase-appendix.md)
 
+### Visual Demo
+
+- [Day1 Prompt 双栏对比](../02-demo/Day1-Prompt双栏对比.html)
+
 ## 入选标准
 
 只有同时满足下面 4 条的内容，才应进入这个入口：
