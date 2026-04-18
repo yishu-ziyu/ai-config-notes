@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day1 Prompt 双栏对比</title>
+    <style>
+      :root {
+        --bg: #f6f3ee;
+        --card: #fffdf9;
+        --text: #1e1b18;
+        --muted: #6b6258;
+        --line: #e6ded2;
+        --bad: #fff1ee;
+        --good: #eef8f1;
+        --bad-accent: #b84c35;
+        --good-accent: #2f7a4f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "PingFang SC", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(180deg, #f8f5ef 0%, #f1ece4 100%);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+      }
+
+      .hero {
+        margin-bottom: 28px;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(30px, 4vw, 52px);
+        line-height: 1.05;
+        font-weight: 700;
+      }
+
+      .sub {
+        max-width: 760px;
+        font-size: 16px;
+        line-height: 1.75;
+        color: var(--muted);
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: 28px 0 34px;
+      }
+
+      .summary-card {
+        background: rgba(255, 253, 249, 0.8);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px 18px;
+      }
+
+      .summary-card .label {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .summary-card .value {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .panel {
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(60, 41, 17, 0.06);
+      }
+
+      .panel.bad {
+        background: var(--bad);
+      }
+
+      .panel.good {
+        background: var(--good);
+      }
+
+      .panel-head {
+        padding: 22px 24px 18px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .bad .tag {
+        background: rgba(184, 76, 53, 0.12);
+        color: var(--bad-accent);
+      }
+
+      .good .tag {
+        background: rgba(47, 122, 79, 0.12);
+        color: var(--good-accent);
+      }
+
+      .panel h2 {
+        margin: 0 0 6px;
+        font-size: 28px;
+      }
+
+      .panel .desc {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .section {
+        padding: 22px 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .section:last-child {
+        border-bottom: 0;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      pre {
+        margin: 0;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 1.7;
+        font-size: 14px;
+        color: #2f2923;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.8;
+      }
+
+      .footer-note {
+        margin-top: 22px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 253, 249, 0.75);
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      @media (max-width: 900px) {
+        .summary,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <div class="eyebrow">Day 1 / Prompt Engineering</div>
+        <h1>同一个模型，Prompt 一变，结果就变了。</h1>
+        <p class="sub">
+          这不是理论例子。下面的左栏和右栏，都是基于同一份真实岗位能力材料、同一个模型、
+          同一个任务跑出来的结果。差别只在 Prompt 写法。
+        </p>
+      </section>
+
+      <section class="summary">
+        <div class="summary-card">
+          <div class="label">任务</div>
+          <div class="value">提炼岗位核心能力</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">模型</div>
+          <div class="value">MiniMax-M2.7-highspeed</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">结论</div>
+          <div class="value">好 Prompt 更稳</div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel bad">
+          <div class="panel-head">
+            <div class="tag">Bad Prompt</div>
+            <h2>它会说很多，但不够准。</h2>
+            <p class="desc">
+              Prompt 太泛。模型知道你想要“总结”，但它不知道你到底要什么样的总结。
+            </p>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Prompt</div>
+            <pre>帮我总结这个岗位需要什么能力。</pre>
+          </div>
+
+          <div class="section">
+            <div class="section-title">真实输出片段</div>
+            <pre># AI产品经理核心能力提炼
+
+## 一、高频核心能力模块（TOP 10）
+
+| 排名 | 能力模块 | 出现频次 | 说明 |
+| 1 | Prompt Engineering | 8+ | 核心中的核心 |
+| 2 | 需求分析/用户洞察 | 6+ | 产品经理根基能力 |
+| 3 | PRD撰写 | 5+ | 日常输出物 |
+| 4 | 快速学习能力 | 5+ | 行业变化快 |
+| 5 | AI原理理解 | 5+ | 与技术团队对话基础 |
+
+## 三、一周冲刺学习闭环
+### Day 1-2：Prompt Engineering（2天）
+### Day 3：需求分析与PRD撰写（1天）
+### Day 4：AI原理速通（1天）</pre>
+          </div>
+
+          <div class="section">
+            <div class="section-title">为什么它差</div>
+            <ul>
+              <li>它知道要总结，但不知道要怎么总结。</li>
+              <li>它给了很多内容，却没有真正收束成判断。</li>
+              <li>它更像一篇“会写很多”的答案，而不是一个能直接拿去用的结果。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel good">
+          <div class="panel-head">
+            <div class="tag">Good Prompt</div>
+            <h2>它知道你要的不是“总结”，而是“判断”。</h2>
+            <p class="desc">
+              Prompt 把任务、边界、输出结构和排除项都讲清楚了，所以结果更聚焦。
+            </p>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Prompt</div>
+            <pre>你现在扮演岗位分析师。
+
+任务：
+根据下面的岗位描述，提炼 5 个最核心能力，并按 P0 / P1 / P2 排优先级。
+
+输出要求：
+1. 用中文
+2. 输出表格，字段为：能力 / 为什么重要 / 优先级
+3. 不要照抄原文
+4. 不要超过 200 字
+
+材料：
+[岗位描述]</pre>
+          </div>
+
+          <div class="section">
+            <div class="section-title">真实输出片段</div>
+            <pre># 核心能力模块
+
+| 模块 | 包含能力 | 为什么重要 | 优先级 |
+| Prompt 与 Agent | Prompt 调优、Agent 工作流设计、Badcase 反馈机制 | 面试必问、实操必考 | P0 |
+| 产品基本功 | PRD 撰写、原型设计、需求拆解、竞品分析 | 产品判断的根基 | P0 |
+| 数据分析与评估 | 数据分析、效果评估、Benchmark 设计 | 不会评估就等于不会做 | P0 |
+| 技术理解力 | LLM/NLP、RAG/Fine-tuning、API、Coze/Dify | 决定你能否与研发平等对话 | P1 |
+| 协作与推进 | 沟通、项目推进、自驱力 | 决定方案能不能落地 | P1 |</pre>
+          </div>
+
+          <div class="section">
+            <div class="section-title">为什么它好</div>
+            <ul>
+              <li>它把“你要做什么”说清楚了。</li>
+              <li>它把“结果要长什么样”说清楚了。</li>
+              <li>它把“什么不能做”也说清楚了。</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <div class="footer-note">
+        最重要的不是 Prompt 写得多复杂。<br />
+        最重要的是，Prompt 有没有让模型更少误解你。
+      </div>
+    </div>
+  </body>
+  </html>
