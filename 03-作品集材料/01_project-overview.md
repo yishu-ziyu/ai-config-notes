@@ -21,6 +21,14 @@
 - [Day1 实验记录表](../02-demo/Day1-实验记录表.md)
 - [Day1 Prompt 双栏对比](../02-demo/Day1-Prompt双栏对比.html)
 
+### Day 2 单 Agent
+
+- [Day2 Coze 单 Agent 卡](../01-学习卡片/D02-Coze单Agent卡.md)
+- [Day2 Demo Brief](../02-demo/D02_coze-single-agent/D02_coze-single-agent_demo-brief_v1.md)
+- [Day2 Prompt Spec](../02-demo/D02_coze-single-agent/D02_coze-single-agent_prompt-spec_v1.md)
+- [Day2 User Flow](../02-demo/D02_coze-single-agent/D02_coze-single-agent_user-flow_v1.md)
+- [Day2 Badcase Log](../04-评测与Badcase/D02_coze-single-agent_badcase-log_v1.md)
+
 ### Case Study 骨架
 
 - [Case Study - Agent产品方案](./Case%20Study%20-%20Agent产品方案.md)
@@ -34,6 +42,6 @@
 
 ## 下一步
 
-1. 把 Day 1 模板填成真实 Prompt 对比实验
-2. 建立统一的评测总表和 badcase 总表
-3. 从真实 demo 中回填 case study
+1. 把 Day 2 的单 Agent 方案真正搭到 Coze 里
+2. 补真实页面截图、真实输入样例和真实输出
+3. 从 Day 1 + Day 2 的真实结果里回填 case study
